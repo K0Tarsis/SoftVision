@@ -27,7 +27,6 @@ async def get_me(user_id: int, descriptions="Get info about current user and inf
     command_user = users.select().where(users.c.id == user_id)
     user = conn.execute(command_user).fetchone()
 
-
     games_connected_command = select([games]).where(and_(connections.c.user_id == user.id,
                                                          connections.c.game_id == games.c.id))
     games_connected = conn.execute(games_connected_command)
