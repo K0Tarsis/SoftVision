@@ -1,3 +1,5 @@
+import uvicorn
+
 from fastapi import FastAPI, Query
 from sqlalchemy import select, and_
 from model import engine, users, games, connections
@@ -75,3 +77,8 @@ async def del_connect(user_id: int, game_id: int, descriptions='Delete USER-GAME
     info = {"Game": game_id, "User": user_id}
 
     return {"Status": "Deleted", "Info": info}
+
+if __name__ == "__main__":
+    config = uvicorn.Config("main:app", host="0.0.0.0", port=8005, log_level="info")
+    server = uvicorn.Server(config)
+    server.run()

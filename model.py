@@ -1,3 +1,4 @@
+import os
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, ForeignKey
 
 meta = MetaData()
@@ -20,8 +21,12 @@ connections = Table("Connections", meta,
                     Column("game_id", Integer, ForeignKey("Games.id"))
                     )
 
+if os.environ.get("DATABASE_POSTGRES"):
+    DATABASE = os.environ.get("DATABASE_POSTGRES")
+else:
+    DATABASE = "localhost"
 
-engine = create_engine("postgresql+pg8000://root:root@localhost/softvision")
+engine = create_engine(f"postgresql+psycopg2://root:root@{DATABASE}/softvision")
 
 
 if __name__ == "__main__":

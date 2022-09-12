@@ -1,11 +1,11 @@
 # SoftVision
 Was used FastAPI and Uvicorn, SQLAlchemy, PostgreSQL
 
-To install requirments comand "pip install -r requirements.txt" in your virtual environment. 
-
-To run project "uvicorn main:app --reload"
+To install requirements, command "pip install -r requirements.txt" in your virtual environment.
 
 To initialize the database, need first run model.py "python model.py"
+
+To run project "python main.py"
 
 Available endpoints:
   1) GET(/get_games) #Get all games, and users connected
