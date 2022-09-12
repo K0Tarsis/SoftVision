@@ -7,6 +7,8 @@ To initialize the database, need first run model.py "python model.py"
 
 To run project "python main.py"
 
+To run with docker compose "docker-compose up -d --build" 
+
 Available endpoints:
   1) GET(/get_games) #Get all games, and users connected
   2) GET(/get_me/{user_id}) #Get info about current user and info about all connected games
